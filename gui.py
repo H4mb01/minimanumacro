@@ -1,6 +1,7 @@
 import tkinter as tk
 import json
 import time
+from tkinter import *
 
 
 from pynput.mouse import Controller as MouseController
@@ -17,13 +18,14 @@ asclightblue = "#e5f4ff"
 ascorange = "#e78319"
 asctext = "#00315E"
 
+#root element of gui
 root = tk.Tk()
 root.title("minimanumacro")
 root.geometry("500x700")
 root.configure(bg=ascblue)
 
 
-
+#logic relevant variables
 titletext = "minimanumacro"
 combo = False
 recording = False
@@ -32,7 +34,8 @@ newmakro = []
 makros = []
 hotkeys = {}
 recordinghotkeys = False
-drag = False
+drag = BooleanVar()
+
 
 
 
@@ -46,35 +49,36 @@ def runmakro(id):
     if recording:
         print("can't play a macro while recording")
     else:
-        if drag:
-            #etwas neues, ich tue es beim drag
-            pass
-        else:
-            print("running macro {0}".format(id))
-            m = findmakro(id)
-            makro = m["makro"]
-            index = 0
-            for step in makro:
-                try:
-                    if step["mok"] == "m":
+        print("running macro {0}".format(id))
+        m = findmakro(id)
+        makro = m["makro"]
+        index = 0
+        for step in makro:
+            try:
+                if step["mok"] == "m":
                     #all Mouse actions
-                        mouse.position = (step["x"], step["y"])
+                    mouse.position = (step["x"], step["y"])
+                    if step['action'] == 'scroll' and step['key'] == "middle":
+                        mouseaction = "mouse." + step['action'] + "(" + str(step['dx']) + "," + str(step['dy']) + ")"
+                        print(mouseaction)
+                        exec(mouseaction)
+                    elif step["action"] != "move":
                         mouseaction="mouse." + step["action"] + "(" + step["key"] + ")"
                         exec(mouseaction)
-                    elif step["mok"] == "k":
-                        #all keyboard actions
-                        keyboardaction = "keyboard." + step["action"] + "(" + step["key"] + ")"
-                        exec(keyboardaction)
-                    else:
-                        print("neither mouse nor keyboard...?!")
-                except:
-                    print("something didn't work *surprisedpikachuface*")
-                try:
-                    index += 1
-                    print("making step")
-                    time.sleep(makro[index]["time"]-step["time"])
-                except:
-                    print("makro finished")
+                elif step["mok"] == "k":
+                    #all keyboard actions
+                    keyboardaction = "keyboard." + step["action"] + "(" + step["key"] + ")"
+                    exec(keyboardaction)
+                else:
+                    print("neither mouse nor keyboard...?!")
+            except:
+                print("something didn't work *surprisedpikachuface*")
+            try:
+                index += 1
+                print("making step")
+                time.sleep(makro[index]["time"]-step["time"])
+            except:
+                print("makro finished")
 
 
 
@@ -105,6 +109,7 @@ def rendermakros():
         makrohotkeys = tk.Label(
             makroframe, 
             fg=asctext, 
+            bg=asclightblue,
             text=makro["combination"]
             )
         if makro["combination"] == []:
@@ -179,7 +184,6 @@ def confirm():
         while newmakro[0]["action"] == "released":
             del newmakro[0] #entfernt überschüssige button releases vom Anfang
         #for step in newmakro:
-            #step["delay"] = (lambda a, b: a-b)()   #soll den zukünftigen delay berechnen
 
         if newmakro[len(newmakro)-2]["mok"] == "m":
             del newmakro[len(newmakro)-1]
@@ -231,7 +235,7 @@ buttoncontainer = tk.Frame(canvas).place()
 recordButton = tk.Button(buttoncontainer, bg=ascorange, text="record", padx=10, pady=5, fg=asctext, command=record)
 recordButton.place(relx=0, rely = .9, relheight=.1)
 
-waypathcheckbutton = tk.Checkbutton(buttoncontainer, text="drag", variable=drag, bg=ascblue).place(relx=.2, rely=.925, relheight=.05)
+waypathcheckbutton = tk.Checkbutton(buttoncontainer, text="drag", variable=drag, offvalue=False, onvalue=True, bg=ascblue).place(relx=.2, rely=.925, relheight=.05)
 
 abortButton = tk.Button(buttoncontainer, bg="lightgrey", text="abort", padx=10, pady=5, fg="black", command=abort)
 abortButton.place(relx=0.425, rely= .9, relheight=.1)
