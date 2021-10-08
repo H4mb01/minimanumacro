@@ -90,8 +90,7 @@ def runmakro(id):
         print("running macro {0}".format(id))
         m = findmakro(id)
         makro = m["makro"]
-        index = 0
-        for step in makro:
+        for index, step in enumerate(makro):
             try:
                 if step["mok"] == "m":
                     #all Mouse actions
@@ -112,7 +111,6 @@ def runmakro(id):
             except:
                 print("something didn't work *surprisedpikachuface*")
             try:
-                index += 1
                 print("making step")
                 time.sleep(makro[index]["time"]-step["time"])
             except:
@@ -132,8 +130,7 @@ def rendermakros():
     get_combination()
     for widget in makroframe.winfo_children():
         widget.destroy()
-    for makro in makros:
-        row=makros.index(makro)
+    for row, makro in enumerate(makros):
         label = tk.Label(
             makroframe, 
             font="Helvetica 15", 
@@ -183,7 +180,7 @@ def rendermakros():
         deleteBtn = tk.Button(
             makroframe, 
             text="delete",
-            command=lambda makro=makro: deleteByName(makro["name"]), 
+            command=lambda makro=makro: deleteById(makro["id"]), 
             bg="lightgrey", 
             fg=asctext)
         deleteBtn.grid(
@@ -202,27 +199,25 @@ def render_message_box():
 
 def deleteById(id):
     print("trying to delete macro with id'{0}'".format(id))
-    for makro in makros:
+    for index, makro in enumerate(makros):
         if makro["id"] == id:
             print("found macro with id '{0}'".format(id))
-            index = makros.index(makro)
             del makros[index]
             global combination_to_id
-            for combi in combination_to_id:
-                if combination_to_id[combi] == id:
-                    del combination_to_id[combi]
+            for key, value in combination_to_id:
+                if value == id:
+                    del combination_to_id[key]
             with open('makros.json', 'w') as f:
                 json.dump({"makros": makros}, f, indent=2) 
             rendermakros()
             print("deleted macro with id '{0}'".format(id))
             break
 
-def deleteByName(name):
+def deleteByName(name): #wird nicht mehr genutzt
     print("trying to delete macro '{0}'".format(name))
-    for makro in makros:
+    for index, makro in enumerate(makros):
         if makro["name"] == name:
             print("found macro '{0}'".format(name))
-            index = makros.index(makro)
             del makros[index]
             with open('makros.json', 'w') as f:
                 json.dump({"makros": makros}, f, indent=2) 
@@ -278,9 +273,7 @@ def confirm():
             })
         save_makros()
 
-        print("recording hotkeys...")
         global recordinghotkeys
-        recordinghotkeys = True
 
         #makros anzeigen
         rendermakros()

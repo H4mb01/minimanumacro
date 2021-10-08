@@ -257,6 +257,31 @@
           "y": 26
         }
       ]
+    },
+    {
+      "id": 4,
+      "name": "macro 4",
+      "combination": [],
+      "combinationstr": [],
+      "description": "",
+      "makro": [
+        {
+          "mok": "m",
+          "key": "Button.left",
+          "time": 1633690409.0547616,
+          "action": "press",
+          "x": 349,
+          "y": 621
+        },
+        {
+          "mok": "m",
+          "key": "Button.left",
+          "time": 1633690409.1332595,
+          "action": "release",
+          "x": 351,
+          "y": 622
+        }
+      ]
     }
   ]
 }
