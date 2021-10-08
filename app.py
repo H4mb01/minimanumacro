@@ -6,7 +6,7 @@ from pynput import mouse, keyboard
 from pynput.mouse import Controller as MC
 from pynput.keyboard import Controller as KC
 from pynput.mouse import Button as Mousebutton
-from pynput.keyboard import Key
+from pynput.keyboard import Key, KeyCode
 
 maus = MC()
 
@@ -47,7 +47,8 @@ def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
 
     return new
 
-
+def get_vk(key):
+    return key.vk if hasattr(key, 'vk') else key.value.vk
 
 
 
@@ -88,7 +89,7 @@ def on_press(key):
     #gui.pressed_vks.add(vk)
     if len(gui.currentcombination) >3:
         gui.currentcombination = set()
-    gui.currentcombination.add(str(key))
+    gui.currentcombination.add(get_vk(key))
     print("currentcombination: {0}".format(gui.currentcombination))
     for combination in gui.combination_to_id:
 
@@ -104,13 +105,20 @@ def on_press(key):
         gui.newmakro.append(neuerEintrag("k", key, "press"))
 
     if gui.recordinghotkeys:
-        gui.recorded_hotkeys.add(str(key))
+        if get_vk(key) == 46:
+            gui.abort()
+        elif get_vk(key) == 13:
+            gui.confirm()
+        else:
+            gui.recorded_hotkeys.add(get_vk(key))
+            gui.recorded_hotkeys_str.add(str(key))
+            print("recorded hotkeys:", gui.recorded_hotkeys, gui.recorded_hotkeys_str)
 
 def on_release(key):
     '''vk=gui.get_vk(key)
     gui.pressed_vks.remove(vk)'''
     try:
-        gui.currentcombination.remove(str(key))
+        gui.currentcombination.remove(get_vk(key))
     except KeyError:
         pass
     else:

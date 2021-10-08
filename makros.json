@@ -4,1850 +4,257 @@
       "id": 1,
       "name": "macro 1",
       "combination": [
-        "Key.ctrl_l",
-        "Key.space"
+        72,
+        71
+      ],
+      "combinationstr": [
+        "'h'",
+        "'g'"
       ],
       "description": "",
       "makro": [
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633512833.8641233,
+          "time": 1633686864.576959,
           "action": "press",
-          "x": 1256,
-          "y": 238
+          "x": 150,
+          "y": 624
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633512833.9565,
+          "time": 1633686864.6431258,
           "action": "release",
-          "x": 1256,
-          "y": 238
+          "x": 150,
+          "y": 624
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633512834.1564183,
+          "time": 1633686864.777247,
           "action": "press",
-          "x": 1394,
-          "y": 366
+          "x": 182,
+          "y": 627
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633512834.235813,
+          "time": 1633686864.8517156,
           "action": "release",
-          "x": 1394,
-          "y": 366
+          "x": 228,
+          "y": 634
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633512834.4219007,
+          "time": 1633686864.983589,
           "action": "press",
-          "x": 1061,
-          "y": 486
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512834.4994433,
-          "action": "release",
-          "x": 1061,
-          "y": 486
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512834.6576068,
-          "action": "press",
-          "x": 1268,
-          "y": 491
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512834.7552083,
-          "action": "release",
-          "x": 1273,
-          "y": 482
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512834.9204497,
-          "action": "press",
-          "x": 1116,
-          "y": 249
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512835.0119326,
-          "action": "release",
-          "x": 1116,
-          "y": 248
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512835.189282,
-          "action": "press",
-          "x": 1292,
-          "y": 315
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633512835.2602372,
-          "action": "release",
-          "x": 1291,
-          "y": 317
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "macro 2",
-      "combination": [],
-      "description": "",
-      "makro": [
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.3467853,
-          "action": "move",
-          "x": 140,
-          "y": 788
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.3543775,
-          "action": "move",
-          "x": 140,
-          "y": 788
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.3624277,
-          "action": "move",
-          "x": 141,
-          "y": 787
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.370398,
-          "action": "move",
-          "x": 143,
-          "y": 786
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.378378,
-          "action": "move",
-          "x": 147,
-          "y": 783
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.38638,
-          "action": "move",
-          "x": 155,
-          "y": 777
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.3942745,
-          "action": "move",
-          "x": 163,
-          "y": 771
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4022784,
-          "action": "move",
-          "x": 172,
-          "y": 764
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4102886,
-          "action": "move",
-          "x": 183,
-          "y": 758
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4182746,
-          "action": "move",
-          "x": 199,
-          "y": 746
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.427278,
-          "action": "move",
-          "x": 219,
-          "y": 736
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4342992,
-          "action": "move",
-          "x": 245,
-          "y": 723
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4422767,
-          "action": "move",
-          "x": 272,
-          "y": 710
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4503074,
-          "action": "move",
-          "x": 298,
-          "y": 697
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4582703,
-          "action": "move",
-          "x": 326,
-          "y": 683
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4662807,
-          "action": "move",
-          "x": 352,
-          "y": 670
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.474279,
-          "action": "move",
-          "x": 376,
-          "y": 658
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4822767,
-          "action": "move",
-          "x": 402,
-          "y": 644
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.4902828,
-          "action": "move",
-          "x": 436,
-          "y": 626
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.498283,
-          "action": "move",
-          "x": 465,
-          "y": 613
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.506279,
-          "action": "move",
-          "x": 494,
-          "y": 599
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5144975,
-          "action": "move",
-          "x": 525,
-          "y": 586
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.522257,
-          "action": "move",
-          "x": 566,
-          "y": 571
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5302558,
-          "action": "move",
-          "x": 601,
-          "y": 560
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.538258,
-          "action": "move",
-          "x": 635,
-          "y": 554
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5462546,
-          "action": "move",
-          "x": 670,
-          "y": 546
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5552824,
-          "action": "move",
-          "x": 715,
-          "y": 537
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5622606,
-          "action": "move",
-          "x": 750,
-          "y": 530
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5702612,
-          "action": "move",
-          "x": 792,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5782552,
-          "action": "move",
-          "x": 830,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5872624,
-          "action": "move",
-          "x": 868,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.5942564,
-          "action": "move",
-          "x": 917,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6022587,
-          "action": "move",
-          "x": 960,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.610256,
-          "action": "move",
-          "x": 1004,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6182568,
-          "action": "move",
-          "x": 1047,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6262605,
-          "action": "move",
-          "x": 1085,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6342566,
-          "action": "move",
-          "x": 1121,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6422975,
-          "action": "move",
-          "x": 1156,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6502554,
-          "action": "move",
-          "x": 1191,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6582644,
-          "action": "move",
-          "x": 1226,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.667255,
-          "action": "move",
-          "x": 1256,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6742623,
-          "action": "move",
-          "x": 1283,
-          "y": 523
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6822598,
-          "action": "move",
-          "x": 1312,
-          "y": 520
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6902683,
-          "action": "move",
-          "x": 1333,
-          "y": 515
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.6982565,
-          "action": "move",
-          "x": 1352,
-          "y": 510
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.70627,
-          "action": "move",
-          "x": 1370,
-          "y": 503
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.714255,
-          "action": "move",
-          "x": 1386,
-          "y": 497
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7222598,
-          "action": "move",
-          "x": 1402,
-          "y": 489
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7302697,
-          "action": "move",
-          "x": 1418,
-          "y": 482
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.73826,
-          "action": "move",
-          "x": 1430,
-          "y": 474
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7462544,
-          "action": "move",
-          "x": 1440,
-          "y": 468
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7542646,
-          "action": "move",
-          "x": 1451,
-          "y": 461
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7622583,
-          "action": "move",
-          "x": 1462,
-          "y": 454
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7702665,
-          "action": "move",
-          "x": 1471,
-          "y": 446
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.778261,
-          "action": "move",
-          "x": 1480,
-          "y": 439
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7864172,
-          "action": "move",
-          "x": 1486,
-          "y": 434
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.7948754,
-          "action": "move",
-          "x": 1491,
-          "y": 428
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.802652,
-          "action": "move",
-          "x": 1492,
-          "y": 423
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8106525,
-          "action": "move",
-          "x": 1493,
-          "y": 419
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8186605,
-          "action": "move",
-          "x": 1493,
-          "y": 414
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8266528,
-          "action": "move",
-          "x": 1490,
-          "y": 406
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8346567,
-          "action": "move",
-          "x": 1486,
-          "y": 399
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8426797,
-          "action": "move",
-          "x": 1477,
-          "y": 390
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8506527,
-          "action": "move",
-          "x": 1463,
-          "y": 379
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8586538,
-          "action": "move",
-          "x": 1446,
-          "y": 366
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.866667,
-          "action": "move",
-          "x": 1428,
-          "y": 357
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.8746533,
-          "action": "move",
-          "x": 1402,
-          "y": 347
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.882659,
-          "action": "move",
-          "x": 1384,
-          "y": 343
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.890657,
-          "action": "move",
-          "x": 1363,
-          "y": 339
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.898656,
-          "action": "move",
-          "x": 1346,
-          "y": 339
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9066863,
-          "action": "move",
-          "x": 1327,
-          "y": 339
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9146621,
-          "action": "move",
-          "x": 1307,
-          "y": 346
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9226565,
-          "action": "move",
-          "x": 1294,
-          "y": 353
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9306564,
-          "action": "move",
-          "x": 1283,
-          "y": 359
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9386673,
-          "action": "move",
-          "x": 1276,
-          "y": 368
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9466565,
-          "action": "move",
-          "x": 1269,
-          "y": 378
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9546623,
-          "action": "move",
-          "x": 1265,
-          "y": 389
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.962669,
-          "action": "move",
-          "x": 1262,
-          "y": 401
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9706552,
-          "action": "move",
-          "x": 1262,
-          "y": 413
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9786658,
-          "action": "move",
-          "x": 1263,
-          "y": 422
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9866586,
-          "action": "move",
-          "x": 1268,
-          "y": 431
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512839.9946563,
-          "action": "move",
-          "x": 1274,
-          "y": 437
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0026567,
-          "action": "move",
-          "x": 1279,
-          "y": 441
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0106604,
-          "action": "move",
-          "x": 1286,
-          "y": 443
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0186586,
-          "action": "move",
-          "x": 1294,
-          "y": 444
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.026685,
-          "action": "move",
-          "x": 1302,
-          "y": 444
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0346038,
-          "action": "move",
-          "x": 1311,
-          "y": 442
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0426369,
-          "action": "move",
-          "x": 1321,
-          "y": 436
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0505204,
-          "action": "move",
-          "x": 1330,
-          "y": 430
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0585315,
-          "action": "move",
-          "x": 1336,
-          "y": 422
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.06654,
-          "action": "move",
-          "x": 1341,
-          "y": 415
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0745373,
-          "action": "move",
-          "x": 1344,
-          "y": 406
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0825367,
-          "action": "move",
-          "x": 1346,
-          "y": 398
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.0905373,
-          "action": "move",
-          "x": 1346,
-          "y": 389
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.098538,
-          "action": "move",
-          "x": 1346,
-          "y": 378
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1065323,
-          "action": "move",
-          "x": 1343,
-          "y": 370
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1145372,
-          "action": "move",
-          "x": 1338,
-          "y": 362
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1225333,
-          "action": "move",
-          "x": 1331,
-          "y": 354
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1305416,
-          "action": "move",
-          "x": 1325,
-          "y": 346
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1385365,
-          "action": "move",
-          "x": 1318,
-          "y": 340
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1465418,
-          "action": "move",
-          "x": 1307,
-          "y": 334
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1545315,
-          "action": "move",
-          "x": 1298,
-          "y": 328
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1625354,
-          "action": "move",
-          "x": 1288,
-          "y": 322
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1705363,
-          "action": "move",
-          "x": 1277,
-          "y": 318
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.178538,
-          "action": "move",
-          "x": 1268,
-          "y": 316
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1865323,
-          "action": "move",
-          "x": 1258,
-          "y": 316
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.1945336,
-          "action": "move",
-          "x": 1251,
-          "y": 316
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.202534,
-          "action": "move",
-          "x": 1244,
-          "y": 318
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2105405,
-          "action": "move",
-          "x": 1238,
-          "y": 323
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2185426,
-          "action": "move",
-          "x": 1231,
-          "y": 330
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.226539,
-          "action": "move",
-          "x": 1226,
-          "y": 336
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2345388,
-          "action": "move",
-          "x": 1221,
-          "y": 343
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2425408,
-          "action": "move",
-          "x": 1218,
-          "y": 350
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2505448,
-          "action": "move",
-          "x": 1216,
-          "y": 358
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2585485,
-          "action": "move",
-          "x": 1215,
-          "y": 366
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.266537,
-          "action": "move",
-          "x": 1214,
-          "y": 374
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2745433,
-          "action": "move",
-          "x": 1212,
-          "y": 383
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.2825437,
-          "action": "move",
-          "x": 1209,
-          "y": 391
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.290538,
-          "action": "move",
-          "x": 1205,
-          "y": 398
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.298557,
-          "action": "move",
-          "x": 1197,
-          "y": 410
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3069193,
-          "action": "move",
-          "x": 1185,
-          "y": 421
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3150303,
-          "action": "move",
-          "x": 1173,
-          "y": 430
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.322034,
-          "action": "move",
-          "x": 1156,
-          "y": 445
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.329988,
-          "action": "move",
-          "x": 1126,
-          "y": 462
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3383718,
-          "action": "move",
-          "x": 1094,
-          "y": 482
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3463888,
-          "action": "move",
-          "x": 1070,
-          "y": 496
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3543935,
-          "action": "move",
-          "x": 1039,
-          "y": 510
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3623881,
-          "action": "move",
-          "x": 1016,
-          "y": 521
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3703845,
-          "action": "move",
-          "x": 986,
-          "y": 533
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.3784218,
-          "action": "move",
-          "x": 956,
-          "y": 538
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.386388,
-          "action": "move",
-          "x": 925,
-          "y": 544
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.394385,
-          "action": "move",
-          "x": 890,
-          "y": 549
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4023945,
-          "action": "move",
-          "x": 855,
-          "y": 558
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4103825,
-          "action": "move",
-          "x": 807,
-          "y": 567
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4183815,
-          "action": "move",
-          "x": 767,
-          "y": 578
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4263852,
-          "action": "move",
-          "x": 721,
-          "y": 590
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4343894,
-          "action": "move",
-          "x": 670,
-          "y": 604
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4423907,
-          "action": "move",
-          "x": 625,
-          "y": 613
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4503891,
-          "action": "move",
-          "x": 587,
-          "y": 623
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.458389,
-          "action": "move",
-          "x": 552,
-          "y": 629
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4663954,
-          "action": "move",
-          "x": 530,
+          "x": 321,
           "y": 635
         },
         {
           "mok": "m",
-          "key": "position",
-          "time": 1633512840.4743867,
-          "action": "move",
-          "x": 514,
-          "y": 639
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4823906,
-          "action": "move",
-          "x": 505,
-          "y": 643
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.490399,
-          "action": "move",
-          "x": 494,
-          "y": 648
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.4983919,
-          "action": "move",
-          "x": 485,
-          "y": 652
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5064,
-          "action": "move",
-          "x": 477,
-          "y": 656
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5143852,
-          "action": "move",
-          "x": 468,
-          "y": 660
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5223868,
-          "action": "move",
-          "x": 461,
-          "y": 665
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5303879,
-          "action": "move",
-          "x": 452,
-          "y": 669
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.538383,
-          "action": "move",
-          "x": 446,
-          "y": 674
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5463965,
-          "action": "move",
-          "x": 441,
-          "y": 678
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5546813,
-          "action": "move",
-          "x": 440,
-          "y": 681
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.56287,
-          "action": "move",
-          "x": 438,
-          "y": 683
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5708792,
-          "action": "move",
-          "x": 437,
-          "y": 686
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5779812,
-          "action": "move",
-          "x": 438,
-          "y": 689
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5859776,
-          "action": "move",
-          "x": 440,
-          "y": 693
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.5939784,
-          "action": "move",
-          "x": 441,
-          "y": 697
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6019819,
-          "action": "move",
-          "x": 442,
-          "y": 700
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.609977,
-          "action": "move",
-          "x": 443,
-          "y": 705
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6179788,
-          "action": "move",
-          "x": 444,
-          "y": 710
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6259894,
-          "action": "move",
-          "x": 444,
-          "y": 714
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6339855,
-          "action": "move",
-          "x": 443,
-          "y": 720
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6419826,
-          "action": "move",
-          "x": 442,
-          "y": 726
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6499798,
-          "action": "move",
-          "x": 441,
-          "y": 731
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6579885,
-          "action": "move",
-          "x": 441,
-          "y": 738
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6659894,
-          "action": "move",
-          "x": 441,
-          "y": 743
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6750202,
-          "action": "move",
-          "x": 441,
-          "y": 748
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.682977,
-          "action": "move",
-          "x": 444,
-          "y": 751
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.689978,
-          "action": "move",
-          "x": 446,
-          "y": 753
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.6989782,
-          "action": "move",
-          "x": 449,
-          "y": 755
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7069764,
-          "action": "move",
-          "x": 453,
-          "y": 756
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7139904,
-          "action": "move",
-          "x": 458,
-          "y": 756
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7230546,
-          "action": "move",
-          "x": 466,
-          "y": 756
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7299764,
-          "action": "move",
-          "x": 476,
-          "y": 755
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.738991,
-          "action": "move",
-          "x": 488,
-          "y": 752
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7459807,
-          "action": "move",
-          "x": 499,
-          "y": 750
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7539797,
-          "action": "move",
-          "x": 509,
-          "y": 749
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7619886,
-          "action": "move",
-          "x": 520,
-          "y": 747
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7699804,
-          "action": "move",
-          "x": 528,
-          "y": 747
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7779756,
-          "action": "move",
-          "x": 536,
-          "y": 747
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.786984,
-          "action": "move",
-          "x": 542,
-          "y": 748
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.7939754,
-          "action": "move",
-          "x": 546,
-          "y": 749
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8019779,
-          "action": "move",
-          "x": 551,
-          "y": 751
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.809984,
-          "action": "move",
-          "x": 553,
-          "y": 753
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8179777,
-          "action": "move",
-          "x": 554,
-          "y": 754
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.826707,
-          "action": "move",
-          "x": 556,
-          "y": 756
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8353698,
-          "action": "move",
-          "x": 557,
-          "y": 756
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.84262,
-          "action": "move",
-          "x": 558,
-          "y": 759
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8506353,
-          "action": "move",
-          "x": 558,
-          "y": 759
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8586333,
-          "action": "move",
-          "x": 559,
-          "y": 761
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8666327,
-          "action": "move",
-          "x": 559,
-          "y": 763
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.874631,
-          "action": "move",
-          "x": 559,
-          "y": 766
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8826346,
-          "action": "move",
-          "x": 559,
-          "y": 769
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.890635,
-          "action": "move",
-          "x": 559,
-          "y": 772
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.8986433,
-          "action": "move",
-          "x": 559,
-          "y": 774
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.9066403,
-          "action": "move",
-          "x": 559,
-          "y": 777
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.914639,
-          "action": "move",
-          "x": 559,
-          "y": 779
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.9226441,
-          "action": "move",
-          "x": 559,
-          "y": 780
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.9306314,
-          "action": "move",
-          "x": 559,
-          "y": 781
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.9386473,
-          "action": "move",
-          "x": 559,
-          "y": 782
-        },
-        {
-          "mok": "m",
-          "key": "position",
-          "time": 1633512840.9466317,
-          "action": "move",
-          "x": 559,
-          "y": 783
+          "key": "Button.left",
+          "time": 1633686865.0756974,
+          "action": "release",
+          "x": 328,
+          "y": 640
         }
       ]
     },
     {
       "id": 3,
       "name": "macro 3",
-      "combination": [],
+      "combination": [
+        72,
+        73
+      ],
+      "combinationstr": [
+        "'i'",
+        "'h'"
+      ],
       "description": "",
       "makro": [
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633523674.0354764,
+          "time": 1633687321.7858694,
           "action": "press",
-          "x": 646,
-          "y": 406
+          "x": -241,
+          "y": 399
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633523674.124839,
+          "time": 1633687321.8892007,
           "action": "release",
-          "x": 646,
-          "y": 407
+          "x": -241,
+          "y": 399
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633523674.305273,
+          "time": 1633687322.9979553,
           "action": "press",
-          "x": 635,
-          "y": 528
+          "x": -197,
+          "y": 26
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633523674.3967562,
+          "time": 1633687323.1458743,
           "action": "release",
-          "x": 635,
-          "y": 528
+          "x": -197,
+          "y": 26
+        },
+        {
+          "mok": "k",
+          "key": "'h'",
+          "time": 1633687325.8218846,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'h'",
+          "time": 1633687325.877825,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'a'",
+          "time": 1633687325.9282506,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'a'",
+          "time": 1633687326.0046587,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'l'",
+          "time": 1633687326.086715,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'l'",
+          "time": 1633687326.1647322,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'l'",
+          "time": 1633687326.2343843,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'l'",
+          "time": 1633687326.3092492,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'o'",
+          "time": 1633687326.4231784,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'o'",
+          "time": 1633687326.4856606,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "Key.space",
+          "time": 1633687326.6236362,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "Key.space",
+          "time": 1633687326.7255714,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'w'",
+          "time": 1633687326.7753243,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'e'",
+          "time": 1633687326.8966494,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'w'",
+          "time": 1633687326.9342008,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'l'",
+          "time": 1633687326.9391637,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'e'",
+          "time": 1633687326.997159,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'l'",
+          "time": 1633687327.0131614,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "'t'",
+          "time": 1633687327.1624992,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "'t'",
+          "time": 1633687327.2644334,
+          "action": "release"
+        },
+        {
+          "mok": "k",
+          "key": "Key.enter",
+          "time": 1633687327.7088451,
+          "action": "press"
+        },
+        {
+          "mok": "k",
+          "key": "Key.enter",
+          "time": 1633687327.7979815,
+          "action": "release"
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633523674.5948918,
+          "time": 1633687329.990483,
           "action": "press",
-          "x": 633,
-          "y": 370
+          "x": -232,
+          "y": 26
         },
         {
           "mok": "m",
           "key": "Button.left",
-          "time": 1633523674.6797812,
+          "time": 1633687330.0960329,
           "action": "release",
-          "x": 633,
-          "y": 371
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633523674.8952136,
-          "action": "press",
-          "x": 639,
-          "y": 545
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633523674.9646227,
-          "action": "release",
-          "x": 639,
-          "y": 544
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633523675.1851122,
-          "action": "press",
-          "x": 641,
-          "y": 409
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633523675.2853713,
-          "action": "release",
-          "x": 641,
-          "y": 409
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "name": "macro 4",
-      "combination": [],
-      "description": "",
-      "makro": [
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633524538.255559,
-          "action": "press",
-          "x": 618,
-          "y": 482
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633524538.331406,
-          "action": "release",
-          "x": 618,
-          "y": 489
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633524538.4410274,
-          "action": "press",
-          "x": 614,
-          "y": 584
-        },
-        {
-          "mok": "m",
-          "key": "Button.left",
-          "time": 1633524538.5134215,
-          "action": "release",
-          "x": 614,
-          "y": 584
+          "x": -232,
+          "y": 26
         }
       ]
     }

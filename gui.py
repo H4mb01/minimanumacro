@@ -40,6 +40,8 @@ combination_to_id = {}
 currentcombination = set()
 #pressed_vks = set()
 recorded_hotkeys = set()
+recorded_hotkeys_str = set()
+hotkeyid = 0
 
 
 
@@ -58,12 +60,20 @@ def is_combination_pressed(combination):
 
 def format_combination(list):
     s = []
-    for key in list:
-        s.append(key.replace("Key.", ""))
-    return " + ".join(s)
+    try:
+        for key in list:
+            s.append(key.replace("Key.", ""))
+        return " + ".join(s)
+    except:
+        return list
 
-'''def get_vk(key):
-    return key.vk if hasattr(key, 'vk') else key.value.vk'''
+def save_combination(combination, id):
+    for makro in makros:
+        if makro["id"] == id:
+            makro["combination"] = combination
+            makro["combinationstr"] = recorded_hotkeys_str
+            save_makros()
+            break
 
 def findmakro(id):
     for makro in makros:
@@ -108,11 +118,18 @@ def runmakro(id):
             except:
                 print("makro finished")
 
-
+def save_makros():
+    with open('makros.json', 'w') as f:
+        tempmakros = makros
+        for makro in tempmakros:
+            makro["combination"] = list(makro["combination"])
+            makro["combinationstr"] = list(makro["combinationstr"])
+        json.dump({"makros": tempmakros}, f, indent=2) 
 
 
 
 def rendermakros():
+    get_combination()
     for widget in makroframe.winfo_children():
         widget.destroy()
     for makro in makros:
@@ -135,7 +152,7 @@ def rendermakros():
             makroframe, 
             fg=asctext, 
             bg=asclightblue,
-            text=format_combination(makro["combination"])
+            text=format_combination(makro.get("combinationstr"))
             )
         if makro["combination"] == []:
             makrohotkeys = tk.Button(
@@ -143,13 +160,13 @@ def rendermakros():
                 fg=asctext, 
                 text="add Hotkeys", 
                 bg=ascorange, 
-                command=lambda makro=makro: addhotkeys()
+                command=lambda makro=makro: addhotkeys(makro["id"])
                 )
         makrohotkeys.grid(
             row=row, 
             column=2, 
             padx=3, 
-            ipadx=50)
+            ipadx=5)
         playbtn = tk.Button(
             makroframe, 
             text="run", 
@@ -178,11 +195,27 @@ def render_message_box():
     if recordinghotkeys:
         for widget in makroframe.winfo_children():
             widget.destroy()
-        messagebox = tk.Frame(makroframe, bg=asclightblue).pack()
+        messagebox = tk.Frame(makroframe, bg=asclightblue).grid(row=0, column=0)
         message1 = "Please push up to 3 buttons as hotkeys for this macro"
         message2 = ""
         label1 = tk.Label(messagebox, bg=ascblue, fg=asctext, text=message1).pack()
 
+def deleteById(id):
+    print("trying to delete macro with id'{0}'".format(id))
+    for makro in makros:
+        if makro["id"] == id:
+            print("found macro with id '{0}'".format(id))
+            index = makros.index(makro)
+            del makros[index]
+            global combination_to_id
+            for combi in combination_to_id:
+                if combination_to_id[combi] == id:
+                    del combination_to_id[combi]
+            with open('makros.json', 'w') as f:
+                json.dump({"makros": makros}, f, indent=2) 
+            rendermakros()
+            print("deleted macro with id '{0}'".format(id))
+            break
 
 def deleteByName(name):
     print("trying to delete macro '{0}'".format(name))
@@ -208,9 +241,11 @@ def record():
 
 def abort():
     print("recording aborted.")
-    global recording, newmakro, recordinghotkeys
+    global recording, newmakro, recordinghotkeys, recorded_hotkeys, hotkeyid
     recording, recordinghotkeys = False, False
     newmakro = []
+    recorded_hotkeys = set()
+    hotkeyid = 0
     
 def confirm():
     print("recording finished.")
@@ -237,11 +272,11 @@ def confirm():
             "id": id+1,
             "name": "macro {0}".format(id+1),
             "combination": [], 
+            "combinationstr": [],
             "description": "",
             "makro": newmakro
             })
-        with open('makros.json', 'w') as f:
-            json.dump({"makros": makros}, f, indent=2) 
+        save_makros()
 
         print("recording hotkeys...")
         global recordinghotkeys
@@ -249,13 +284,21 @@ def confirm():
 
         #makros anzeigen
         rendermakros()
+    elif recordinghotkeys:
+        global hotkeyid
+        save_combination(recorded_hotkeys, hotkeyid)
+        hotkeyid = 0
+        rendermakros()
+        recordinghotkeys = False
     else: 
         print("recording didn't get started")
+        
 
-def addhotkeys():
-    global recordinghotkeys
+def addhotkeys(id):
+    global recordinghotkeys, hotkeyid
     recordinghotkeys = True
-    render_message_box()
+    hotkeyid = id
+    #render_message_box()
     #hier fehlt noch was
 
 
