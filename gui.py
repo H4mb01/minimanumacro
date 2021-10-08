@@ -6,7 +6,7 @@ from tkinter import *
 
 from pynput.mouse import Controller as MouseController
 from pynput.mouse import Button
-from pynput.keyboard import Key, Controller
+from pynput.keyboard import Key, KeyCode, Controller
 
 mouse = MouseController()
 keyboard = Controller()
@@ -35,9 +35,35 @@ makros = []
 hotkeys = {}
 recordinghotkeys = False
 drag = BooleanVar()
+combination_to_id = {}
+#vkcombination_to_id = {}
+currentcombination = set()
+#pressed_vks = set()
+recorded_hotkeys = set()
 
 
 
+#filling combination_to_id
+def get_combination():
+    for makro in makros:
+        if makro["combination"] != []:
+            combination_to_id[frozenset(makro["combination"])] = makro["id"]
+            
+
+def is_combination_pressed(combination):
+    return all(k in currentcombination for k in combination)
+
+'''def is_vkcombination_pressed(combination):
+    return all([get_vk(Key) in pressed_vks for Key in combination])'''
+
+def format_combination(list):
+    s = []
+    for key in list:
+        s.append(key.replace("Key.", ""))
+    return " + ".join(s)
+
+'''def get_vk(key):
+    return key.vk if hasattr(key, 'vk') else key.value.vk'''
 
 def findmakro(id):
     for makro in makros:
@@ -46,6 +72,8 @@ def findmakro(id):
     return None
 
 def runmakro(id):
+    global currentcombination
+    currentcombination = set()
     if recording:
         print("can't play a macro while recording")
     else:
@@ -82,10 +110,7 @@ def runmakro(id):
 
 
 
-def addhotkeys():
-    global recordinghotkeys
-    recordinghotkeys = True
-    #hier fehlt noch was
+
 
 def rendermakros():
     for widget in makroframe.winfo_children():
@@ -110,7 +135,7 @@ def rendermakros():
             makroframe, 
             fg=asctext, 
             bg=asclightblue,
-            text=makro["combination"]
+            text=format_combination(makro["combination"])
             )
         if makro["combination"] == []:
             makrohotkeys = tk.Button(
@@ -149,6 +174,16 @@ def rendermakros():
             column=0, 
             padx=3)
 
+def render_message_box():
+    if recordinghotkeys:
+        for widget in makroframe.winfo_children():
+            widget.destroy()
+        messagebox = tk.Frame(makroframe, bg=asclightblue).pack()
+        message1 = "Please push up to 3 buttons as hotkeys for this macro"
+        message2 = ""
+        label1 = tk.Label(messagebox, bg=ascblue, fg=asctext, text=message1).pack()
+
+
 def deleteByName(name):
     print("trying to delete macro '{0}'".format(name))
     for makro in makros:
@@ -164,16 +199,17 @@ def deleteByName(name):
 
 #button actions
 def record():
-    print("adding new Makro:")
-    global newmakro
-    newmakro = []
-    global recording
-    recording = True
+    if not recordinghotkeys:
+        print("adding new Makro:")
+        global newmakro
+        newmakro = []
+        global recording
+        recording = True
 
 def abort():
     print("recording aborted.")
-    global recording, newmakro
-    recording = False
+    global recording, newmakro, recordinghotkeys
+    recording, recordinghotkeys = False, False
     newmakro = []
     
 def confirm():
@@ -198,11 +234,11 @@ def confirm():
                 id += 1
 
         makros.append({
-            "combination": [], 
-            "makro": newmakro,
-            "description": "",
+            "id": id+1,
             "name": "macro {0}".format(id+1),
-            "id": id+1
+            "combination": [], 
+            "description": "",
+            "makro": newmakro
             })
         with open('makros.json', 'w') as f:
             json.dump({"makros": makros}, f, indent=2) 
@@ -215,6 +251,12 @@ def confirm():
         rendermakros()
     else: 
         print("recording didn't get started")
+
+def addhotkeys():
+    global recordinghotkeys
+    recordinghotkeys = True
+    render_message_box()
+    #hier fehlt noch was
 
 
 #GUI

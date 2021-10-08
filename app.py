@@ -14,7 +14,6 @@ maus = MC()
 combo = gui.combo
 gui.recording = False
 gui.combinations = [set((Key.ctrl_l, Key.alt_l, Key.space)),set((Key.ctrl_r, Key.shift))]
-currentcombination = set()
 gui.newmakro = []
 gui.makros = []
 gui.hotkeys = {}
@@ -25,8 +24,6 @@ with open('makros.json') as f:
     data = json.load(f)
     gui.makros = data["makros"]
 
-for makro in gui.makros:
-    gui.combinations.append(set(makro["combination"]))
 
 #own functions
 def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
@@ -86,30 +83,36 @@ def on_scroll(x, y, dx, dy):
 
 #keyboard inputs
 def on_press(key):
-    global combo
-    
-    for combination in gui.combinations:
+    print(key)
+    #vk=gui.get_vk(key)
+    #gui.pressed_vks.add(vk)
+    if len(gui.currentcombination) >3:
+        gui.currentcombination = set()
+    gui.currentcombination.add(str(key))
+    print("currentcombination: {0}".format(gui.currentcombination))
+    for combination in gui.combination_to_id:
 
-        if key in combination:
-            currentcombination.add(key)
-            if all(k in currentcombination for k in combination):
-                print("ALL ARE ACTIVE!")
-                combo = True
+        print("is_combination_pressed: {0}".format(gui.is_combination_pressed(combination)))
+        if gui.is_combination_pressed(combination):
+            gui.runmakro(gui.combination_to_id[combination])
 
+        #with vks
+        '''if gui.is_vkcombination_pressed(combination):
+            gui.runmakro(gui.combination_to_id[combination])'''
     
     if gui.recording:
         gui.newmakro.append(neuerEintrag("k", key, "press"))
 
+    if gui.recordinghotkeys:
+        gui.recorded_hotkeys.add(str(key))
 
 def on_release(key):
+    '''vk=gui.get_vk(key)
+    gui.pressed_vks.remove(vk)'''
     try:
-        currentcombination.remove(key)
+        gui.currentcombination.remove(str(key))
     except KeyError:
         pass
-    global combo
-    if combo: 
-        gui.record()
-        combo = False
     else:
         if gui.recording:
             gui.newmakro.append(neuerEintrag("k", key, "release"))
@@ -131,6 +134,7 @@ mouseListener.start()
 
 
 #main Program
+gui.get_combination()
 gui.rendermakros()
 gui.root.mainloop()
 
