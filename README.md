@@ -1,6 +1,10 @@
 # minimanumacro
 a program to record and play macros on your PC
 
+## Warning
+this project is work in progress.  
+Usage at own risk.
+
 ## Default Keybindings
 Start recording a new macro: Alt + R  
 Abort recording of a new macro: Alt + A  
