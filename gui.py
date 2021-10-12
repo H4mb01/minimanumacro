@@ -3,6 +3,7 @@ import json
 import time
 from tkinter import *
 
+import copy
 
 from pynput.mouse import Controller as MouseController
 from pynput.mouse import Button
@@ -88,33 +89,39 @@ def runmakro(id):
         print("can't play a macro while recording")
     else:
         print("running macro {0}".format(id))
-        m = findmakro(id)
-        makro = m["makro"]
-        for index, step in enumerate(makro):
-            try:
-                if step["mok"] == "m":
-                    #all Mouse actions
-                    mouse.position = (step["x"], step["y"])
-                    if step['action'] == 'scroll' and step['key'] == "middle":
-                        mouseaction = "mouse." + step['action'] + "(" + str(step['dx']) + "," + str(step['dy']) + ")"
-                        print(mouseaction)
-                        exec(mouseaction)
-                    elif step["action"] != "move":
-                        mouseaction="mouse." + step["action"] + "(" + step["key"] + ")"
-                        exec(mouseaction)
-                elif step["mok"] == "k":
-                    #all keyboard actions
-                    keyboardaction = "keyboard." + step["action"] + "(" + step["key"] + ")"
-                    exec(keyboardaction)
-                else:
-                    print("neither mouse nor keyboard...?!")
-            except:
-                print("something didn't work *surprisedpikachuface*")
-            try:
+        makro = copy.deepcopy(findmakro(id)["makro"])
+        startingtime = time.time()
+        makrostart = makro[0]["time"]
+        while len(makro) > 0:
+            step = makro[0]
+            istdelay =  time.time() - startingtime
+            solldelay = step["time"] - makrostart 
+            #print(f"soll: {solldelay} ; ist: {istdelay}")
+            if istdelay >= solldelay:
+                #makroschritt!!
+                try:
+                    if step["mok"] == "m":
+                        #all Mouse actions
+                        mouse.position = (step["x"], step["y"])
+                        if step['action'] == 'scroll' and step['key'] == "middle":
+                            mouseaction = "mouse." + step['action'] + "(" + str(step['dx']) + "," + str(step['dy']) + ")"
+                            print(mouseaction)
+                            exec(mouseaction)
+                        elif step["action"] != "move":
+                            mouseaction="mouse." + step["action"] + "(" + step["key"] + ")"
+                            exec(mouseaction)
+                    elif step["mok"] == "k":
+                        #all keyboard actions
+                        keyboardaction = "keyboard." + step["action"] + "(" + step["key"] + ")"
+                        exec(keyboardaction)
+                    else:
+                        print("neither mouse nor keyboard...?!")
+                except:
+                    print("something didn't work *surprisedpikachuface*")
                 print("making step")
-                time.sleep(makro[index]["time"]-step["time"])
-            except:
-                print("makro finished")
+                makro.pop(0)
+
+
 
 def save_makros():
     with open('makros.json', 'w') as f:
@@ -204,26 +211,18 @@ def deleteById(id):
             print("found macro with id '{0}'".format(id))
             del makros[index]
             global combination_to_id
-            for key, value in combination_to_id:
-                if value == id:
+            print("combination_to_id:", combination_to_id)
+            for key in combination_to_id:
+                if combination_to_id[key] == id:
                     del combination_to_id[key]
+                    break
             with open('makros.json', 'w') as f:
                 json.dump({"makros": makros}, f, indent=2) 
             rendermakros()
             print("deleted macro with id '{0}'".format(id))
             break
 
-def deleteByName(name): #wird nicht mehr genutzt
-    print("trying to delete macro '{0}'".format(name))
-    for index, makro in enumerate(makros):
-        if makro["name"] == name:
-            print("found macro '{0}'".format(name))
-            del makros[index]
-            with open('makros.json', 'w') as f:
-                json.dump({"makros": makros}, f, indent=2) 
-            rendermakros()
-            print("deleted macro '{0}'".format(name))
-            break
+
 
 #button actions
 def record():
@@ -244,7 +243,7 @@ def abort():
     
 def confirm():
     print("recording finished.")
-    global recording
+    global recording, recordinghotkeys
     if recording == True:
         recording = False
         while newmakro[0]["action"] == "released":
@@ -273,16 +272,17 @@ def confirm():
             })
         save_makros()
 
-        global recordinghotkeys
 
         #makros anzeigen
         rendermakros()
     elif recordinghotkeys:
         global hotkeyid
+        global recorded_hotkeys, recorded_hotkeys_str
         save_combination(recorded_hotkeys, hotkeyid)
         hotkeyid = 0
-        rendermakros()
         recordinghotkeys = False
+        recorded_hotkeys, recorded_hotkeys_str = set(), set()
+        rendermakros()
     else: 
         print("recording didn't get started")
         
