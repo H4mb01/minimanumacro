@@ -98,7 +98,7 @@ def runmakro(id):
             solldelay = step["time"] - makrostart 
             #print(f"soll: {solldelay} ; ist: {istdelay}")
             if istdelay >= solldelay:
-                #makroschritt!!
+                #makroschritt
                 try:
                     if step["mok"] == "m":
                         #all Mouse actions
