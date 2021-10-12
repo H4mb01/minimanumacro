@@ -245,8 +245,9 @@ def confirm(button):
         if button == "hotkey" and newmakro[0].get("vk") in default_combinations["record"]:
             del newmakro[0]
         
-        if button == "hotkey" and newmakro[len(newmakro)-1].get("vk") in default_combinations["record"]:
+        while button == "hotkey" and newmakro[len(newmakro)-1].get("vk") in default_combinations["record"]:
             del newmakro[len(newmakro)-1]
+            
 
         while newmakro[0]["action"] == "release":
             del newmakro[0] #entfernt überschüssige button releases vom Anfang

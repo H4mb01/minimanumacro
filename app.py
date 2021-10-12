@@ -121,7 +121,7 @@ def on_press(key):
         if get_vk(key) == 46: # Entf bricht das aufnehmen von hotkeys ab
             gui.abort()
         elif get_vk(key) == 13: # Enter bestätigt die hotkeys
-            gui.confirm()
+            gui.confirm("hotkey")
         else:
             gui.recorded_hotkeys.add(get_vk(key))
             gui.recorded_hotkeys_str.add(str(key))
