@@ -24,6 +24,10 @@ with open('makros.json') as f:
     data = json.load(f)
     gui.makros = data["makros"]
 
+with open('settings.json') as f:
+    data = json.load(f)
+    gui.default_combinations = data["default_combinations"]
+
 
 #own functions
 def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
@@ -35,7 +39,9 @@ def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
         "time": now,
         "action": action,
     }
-    if mok == "m":
+    if mok == "k":
+        new["vk"] = get_vk(key)
+    elif mok == "m":
         (x,y) = position
         new['x'] = x
         new['y'] = y
@@ -96,18 +102,25 @@ def on_press(key):
         print("is_combination_pressed: {0}".format(gui.is_combination_pressed(combination)))
         if gui.is_combination_pressed(combination):
             gui.runmakro(gui.combination_to_id[combination])
-
-        #with vks
-        '''if gui.is_vkcombination_pressed(combination):
-            gui.runmakro(gui.combination_to_id[combination])'''
     
+    for action in gui.default_combinations:
+        if gui.is_combination_pressed(gui.default_combinations[action]):
+            if action == "record":
+                gui.record()
+            elif action == "abort":
+                gui.abort()
+            elif action == "confirm":
+                gui.confirm("hotkey")
+            elif action == "toggledrag":
+                gui.toggledrag()
+
     if gui.recording:
         gui.newmakro.append(neuerEintrag("k", key, "press"))
 
     if gui.recordinghotkeys:
-        if get_vk(key) == 46:
+        if get_vk(key) == 46: # Entf bricht das aufnehmen von hotkeys ab
             gui.abort()
-        elif get_vk(key) == 13:
+        elif get_vk(key) == 13: # Enter bestätigt die hotkeys
             gui.confirm()
         else:
             gui.recorded_hotkeys.add(get_vk(key))

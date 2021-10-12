@@ -37,13 +37,11 @@ hotkeys = {}
 recordinghotkeys = False
 drag = BooleanVar()
 combination_to_id = {}
-#vkcombination_to_id = {}
 currentcombination = set()
-#pressed_vks = set()
 recorded_hotkeys = set()
 recorded_hotkeys_str = set()
 hotkeyid = 0
-
+default_combinations = {}
 
 
 #filling combination_to_id
@@ -52,12 +50,8 @@ def get_combination():
         if makro["combination"] != []:
             combination_to_id[frozenset(makro["combination"])] = makro["id"]
             
-
 def is_combination_pressed(combination):
     return all(k in currentcombination for k in combination)
-
-'''def is_vkcombination_pressed(combination):
-    return all([get_vk(Key) in pressed_vks for Key in combination])'''
 
 def format_combination(list):
     s = []
@@ -121,6 +115,8 @@ def runmakro(id):
                 print("making step")
                 makro.pop(0)
 
+def toggledrag():
+    pass
 
 
 def save_makros():
@@ -241,18 +237,25 @@ def abort():
     recorded_hotkeys = set()
     hotkeyid = 0
     
-def confirm():
+def confirm(button):
     print("recording finished.")
     global recording, recordinghotkeys
     if recording == True:
         recording = False
-        while newmakro[0]["action"] == "released":
+        if button == "hotkey" and newmakro[0].get("vk") in default_combinations["record"]:
+            del newmakro[0]
+        
+        if button == "hotkey" and newmakro[len(newmakro)-1].get("vk") in default_combinations["record"]:
+            del newmakro[len(newmakro)-1]
+
+        while newmakro[0]["action"] == "release":
             del newmakro[0] #entfernt überschüssige button releases vom Anfang
         #for step in newmakro:
 
-        if newmakro[len(newmakro)-2]["mok"] == "m":
+        if button == "button" and newmakro[len(newmakro)-2]["mok"] == "m":
             del newmakro[len(newmakro)-1]
             del newmakro[len(newmakro)-1]
+
 
         id=0
         for makro in makros:
@@ -318,6 +321,6 @@ waypathcheckbutton = tk.Checkbutton(buttoncontainer, text="drag", variable=drag,
 abortButton = tk.Button(buttoncontainer, bg="lightgrey", text="abort", padx=10, pady=5, fg="black", command=abort)
 abortButton.place(relx=0.425, rely= .9, relheight=.1)
 
-confirmButton = tk.Button(buttoncontainer, bg=ascgreen, text="confirm", padx=10, pady=5, fg="black", command=confirm)
+confirmButton = tk.Button(buttoncontainer, bg=ascgreen, text="confirm", padx=10, pady=5, fg="black", command=lambda: confirm("button"))
 confirmButton.place(relx=.85, rely=.9, relheight=.1)
 

@@ -1,0 +1,8 @@
+{
+    "default_combinations": {
+        "record": [164, 82],
+        "abort": [164, 27],
+        "confirm": [164, 67],
+        "toggledrag": [164, 68]
+    }
+}
