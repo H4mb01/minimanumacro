@@ -19,6 +19,6 @@ Toggle drag option: Alt + D (not implemented yet)
 Press the buttons one by one and confirm with 'Enter' or cancel with 'ESC'.
 4. play the macro at any time using the 'run' button next to it or pressing your own set of hotkeys  
 
-## customize default hotkeys
+## Customize Default Hotkeys
 for customizing the hotkeys for recording, abort, confirm and toggle drag you have to use settings.json.  
 Please note that you have to know the virtual key number of any key you want to use and insert them in dezimal (not Hex).
