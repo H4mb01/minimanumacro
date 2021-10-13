@@ -10,6 +10,7 @@ Start recording a new macro: Alt + R
 Abort recording of a new macro: Alt + A  
 Confirm recorded macro: Alt + C  
 Toggle drag option: Alt + D (not implemented yet)  
+to cancel a running macro double-tap the ESC key
 
 ## Usage
 1. Start recording a macro using the 'record' button or the hotkey (default Alt + R).  

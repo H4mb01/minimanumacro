@@ -4,6 +4,7 @@ import time
 from tkinter import *
 
 import copy
+import threading
 
 from pynput.mouse import Controller as MouseController
 from pynput.mouse import Button
@@ -45,6 +46,7 @@ default_combinations = {}
 running = None
 statusvar = StringVar()
 statusvar.set("Status: ready")
+cancel = False
 
 
 #filling combination_to_id
@@ -91,7 +93,8 @@ def runmakro(id):
         makro = copy.deepcopy(findmakro(id)["makro"])
         startingtime = time.time()
         makrostart = makro[0]["time"]
-        while len(makro) > 0:
+        t = threading.currentThread()
+        while len(makro) > 0 and getattr(t, "do_run", True) and not cancel:
             step = makro[0]
             istdelay =  time.time() - startingtime
             solldelay = step["time"] - makrostart 
@@ -122,6 +125,13 @@ def runmakro(id):
         running = None
         cancel=False
         statusvar.set("Status: ready")
+
+def run(id):
+    if running == None:
+        t = threading.Thread(target=runmakro, args=(id,))
+        t.start()
+    else: 
+        print("macro already running")
 
 def toggledrag():
     pass
@@ -178,7 +188,7 @@ def rendermakros():
         playbtn = tk.Button(
             makroframe, 
             text="run", 
-            command=lambda makro=makro: runmakro(makro["id"]), 
+            command=lambda makro=makro: run(makro["id"]), 
             bg=ascgreen, 
             fg=asctext
             )
@@ -316,8 +326,8 @@ def addhotkeys(id):
     global recordinghotkeys, hotkeyid
     recordinghotkeys = True
     hotkeyid = id
-    #render_message_box()
-    #hier fehlt noch was
+    statusvar.set("Status: recording hotkeys")
+
 
 
 #GUI

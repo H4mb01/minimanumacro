@@ -12,6 +12,7 @@ maus = MC()
 
 
 combo = gui.combo
+tempcancel = False
 
 
 
@@ -96,7 +97,7 @@ def on_press(key):
 
         print("is_combination_pressed: {0}".format(gui.is_combination_pressed(combination)))
         if gui.is_combination_pressed(combination):
-            gui.runmakro(gui.combination_to_id[combination])
+            gui.run(gui.combination_to_id[combination])
     
     for action in gui.default_combinations:
         if gui.is_combination_pressed(gui.default_combinations[action]):
@@ -121,6 +122,17 @@ def on_press(key):
             gui.recorded_hotkeys.add(get_vk(key))
             gui.recorded_hotkeys_str.add(str(key))
             print("recorded hotkeys:", gui.recorded_hotkeys, gui.recorded_hotkeys_str)
+    
+    if gui.cancel:
+        gui.cancel = False
+    global tempcancel
+    if get_vk(key) == 27 and gui.running != None and tempcancel:
+        gui.cancel = True
+        tempcancel = False
+    elif get_vk(key) == 27 and gui.running != None:
+        tempcancel = True
+
+
     
 
 def on_release(key):
