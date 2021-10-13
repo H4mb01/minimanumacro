@@ -101,7 +101,7 @@ def runmakro(id):
             step = makro[0]
             istdelay =  time.time() - startingtime
             solldelay = step["time"] - makrostart 
-            if debug: print(f"soll: {solldelay} ; ist: {istdelay}")
+            #if debug: print(f"soll: {solldelay} ; ist: {istdelay}")
             if istdelay >= solldelay:
                 #makroschritt
                 try:
@@ -121,7 +121,8 @@ def runmakro(id):
                         exec(keyboardaction)
                     else:
                         if debug: print("neither mouse nor keyboard...?!")
-                except:
+                except Exception as e:
+                    if debug: print(e)
                     if debug: print("something didn't work *surprisedpikachuface*")
                 if debug: print("making step")
                 makro.pop(0)

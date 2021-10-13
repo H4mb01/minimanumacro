@@ -1,3 +1,4 @@
+from copy import deepcopy
 import gui
 import time
 import json
@@ -13,6 +14,35 @@ maus = MC()
 
 combo = gui.combo
 tempcancel = False
+
+special_chars={
+    "'\\x01'": "'a'",
+    "'\\x02'": "'b'",
+    "'\\x03'": "'c'",
+    "'\\x04'": "'d'",
+    "'\\x05'": "'e'",
+    "'\\x06'": "'f'",
+    "'\\x07'": "'g'",
+    "'\\x08'": "'h'",
+    "'\\t'": "'i'",
+    "'\\n'": "'j'",
+    "'\\x0b'": "'k'",
+    "'\\x0c'": "'l'",
+    "'\\r'": "'m'",
+    "'\\x0e'": "'n'",
+    "'\\x0f'": "'o'",
+    "'\\x10'": "'p'",
+    "'\\x11'": "'q'",
+    "'\\x12'": "'r'",
+    "'\\x13'": "'s'",
+    "'\\x14'": "'t'",
+    "'\\x15'": "'u'",
+    "'\\x16'": "'v'",
+    "'\\x17'": "'w'",
+    "'\\x18'": "'x'",
+    "'\\x19'": "'y'",
+    "'\\x1a'": "'z'"
+}
 
 
 
@@ -36,6 +66,10 @@ def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
         "time": now,
         "action": action,
     }
+    if new["key"][0] == "[" and new["key"][len(new["key"])-1] == "]":
+        new["key"] = str(key).strip("[]")
+    if new["key"] in special_chars:
+        new["key"] = special_chars[new["key"]]
     if mok == "k":
         new["vk"] = get_vk(key)
     elif mok == "m":
