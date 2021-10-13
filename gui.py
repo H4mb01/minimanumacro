@@ -48,6 +48,9 @@ statusvar = StringVar()
 statusvar.set("Status: ready")
 cancel = False
 
+#debugging fpr console outputs
+debug = False
+
 
 #filling combination_to_id
 def get_combination():
@@ -85,9 +88,9 @@ def runmakro(id):
     global currentcombination, running, cancel
     currentcombination = set()
     if recording:
-        print("can't play a macro while recording")
+        if debug: print("can't play a macro while recording")
     else:
-        print("running macro {0}".format(id))
+        if debug: print("running macro {0}".format(id))
         statusvar.set("Status: running macro")
         running = id
         makro = copy.deepcopy(findmakro(id)["makro"])
@@ -98,7 +101,7 @@ def runmakro(id):
             step = makro[0]
             istdelay =  time.time() - startingtime
             solldelay = step["time"] - makrostart 
-            #print(f"soll: {solldelay} ; ist: {istdelay}")
+            if debug: print(f"soll: {solldelay} ; ist: {istdelay}")
             if istdelay >= solldelay:
                 #makroschritt
                 try:
@@ -107,7 +110,7 @@ def runmakro(id):
                         mouse.position = (step["x"], step["y"])
                         if step['action'] == 'scroll' and step['key'] == "middle":
                             mouseaction = "mouse." + step['action'] + "(" + str(step['dx']) + "," + str(step['dy']) + ")"
-                            print(mouseaction)
+                            if debug: print(mouseaction)
                             exec(mouseaction)
                         elif step["action"] != "move":
                             mouseaction="mouse." + step["action"] + "(" + step["key"] + ")"
@@ -117,10 +120,10 @@ def runmakro(id):
                         keyboardaction = "keyboard." + step["action"] + "(" + step["key"] + ")"
                         exec(keyboardaction)
                     else:
-                        print("neither mouse nor keyboard...?!")
+                        if debug: print("neither mouse nor keyboard...?!")
                 except:
-                    print("something didn't work *surprisedpikachuface*")
-                print("making step")
+                    if debug: print("something didn't work *surprisedpikachuface*")
+                if debug: print("making step")
                 makro.pop(0)
         running = None
         cancel=False
@@ -131,13 +134,13 @@ def run(id):
         t = threading.Thread(target=runmakro, args=(id,))
         t.start()
     else: 
-        print("macro already running")
+        if debug: print("macro already running")
 
 def toggledrag():
     pass
 
 def reset_hotkeys(id):
-    print(f"resetting hotkeys of macro with id {id}")
+    if debug: print(f"resetting hotkeys of macro with id {id}")
     for makro in makros:
         if makro["id"] == id:
             makro["combination"] = []
@@ -247,13 +250,13 @@ def render_message_box():
         label1 = tk.Label(messagebox, bg=ascblue, fg=asctext, text=message1).pack()
 
 def deleteById(id):
-    print("trying to delete macro with id'{0}'".format(id))
+    if debug: print("trying to delete macro with id'{0}'".format(id))
     for index, makro in enumerate(makros):
         if makro["id"] == id:
-            print("found macro with id '{0}'".format(id))
+            if debug: print("found macro with id '{0}'".format(id))
             del makros[index]
             global combination_to_id
-            print("combination_to_id:", combination_to_id)
+            if debug: print("combination_to_id:", combination_to_id)
             for key in combination_to_id:
                 if combination_to_id[key] == id:
                     del combination_to_id[key]
@@ -261,7 +264,7 @@ def deleteById(id):
             with open('makros.json', 'w') as f:
                 json.dump({"makros": makros}, f, indent=2) 
             rendermakros()
-            print("deleted macro with id '{0}'".format(id))
+            if debug: print("deleted macro with id '{0}'".format(id))
             break
 
 
@@ -269,7 +272,7 @@ def deleteById(id):
 #button actions
 def record():
     if not recordinghotkeys:
-        print("adding new Makro:")
+        if debug: print("adding new Makro:")
         global newmakro
         newmakro = []
         global recording
@@ -277,7 +280,7 @@ def record():
         statusvar.set("Status: recording macro")
 
 def abort():
-    print("recording aborted.")
+    if debug: print("recording aborted.")
     global recording, newmakro, recordinghotkeys, recorded_hotkeys, hotkeyid
     recording, recordinghotkeys = False, False
     newmakro = []
@@ -286,7 +289,7 @@ def abort():
     statusvar.set("Status: ready")
     
 def confirm(button):
-    print("recording finished.")
+    if debug: print("recording finished.")
     global recording, recordinghotkeys
     if recording == True:
         recording = False
@@ -336,7 +339,7 @@ def confirm(button):
         recorded_hotkeys, recorded_hotkeys_str = set(), set()
         rendermakros()
     else: 
-        print("recording didn't get started")
+        if debug: print("recording didn't get started")
     statusvar.set("Status: ready")
         
 

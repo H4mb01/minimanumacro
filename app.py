@@ -29,7 +29,7 @@ with open('settings.json') as f:
 #own functions
 def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
     now = time.time()
-    print("new entry: mok: {0}, key: {1}, action: {2}, position: {3}".format(mok, key, action, position))
+    if gui.debug: print("new entry: mok: {0}, key: {1}, action: {2}, position: {3}".format(mok, key, action, position))
     new = {
         "mok": mok,
         "key": str(key),
@@ -46,7 +46,7 @@ def neuerEintrag(mok, key, action, *position, scroll=(0,0)):
             dx, dy = scroll
             new['dx'] = dx
             new['dy'] = dy
-        print(new)
+        if gui.debug: print(new)
 
     return new
 
@@ -68,10 +68,10 @@ def on_move(x,y):
             gui.newmakro.append(neuerEintrag("m", "position", "move", tx, ty))
 
 def on_click(x, y, button, pressed):
-    print('{0} {1} at {2}'.format(
+    if gui.debug: print('{0} {1} at {2}'.format(
         'Pressed' if pressed else 'Released', button,
         (x, y)))
-    print("mouse.postion = ", maus.position)
+    if gui.debug: print("mouse.postion = ", maus.position)
     if gui.recording:
         tx, ty = maus.position
         gui.newmakro.append(neuerEintrag("m", button, 'press' if pressed else 'release', tx, ty ))
@@ -88,14 +88,14 @@ def on_scroll(x, y, dx, dy):
 #keyboard inputs
 def on_press(key):
     vk=get_vk(key)
-    print(f"{key}: {vk}")
+    if gui.debug: print(f"{key}: {vk}")
     if len(gui.currentcombination) >3:
         gui.currentcombination = set()
     gui.currentcombination.add(get_vk(key))
-    print("currentcombination: {0}".format(gui.currentcombination))
+    if gui.debug: print("currentcombination: {0}".format(gui.currentcombination))
     for combination in gui.combination_to_id:
 
-        print("is_combination_pressed: {0}".format(gui.is_combination_pressed(combination)))
+        if gui.debug: print("is_combination_pressed: {0}".format(gui.is_combination_pressed(combination)))
         if gui.is_combination_pressed(combination):
             gui.run(gui.combination_to_id[combination])
     
@@ -121,7 +121,7 @@ def on_press(key):
         else:
             gui.recorded_hotkeys.add(get_vk(key))
             gui.recorded_hotkeys_str.add(str(key))
-            print("recorded hotkeys:", gui.recorded_hotkeys, gui.recorded_hotkeys_str)
+            if gui.debug: print("recorded hotkeys:", gui.recorded_hotkeys, gui.recorded_hotkeys_str)
     
     if gui.cancel:
         gui.cancel = False
