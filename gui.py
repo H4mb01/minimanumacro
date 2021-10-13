@@ -137,7 +137,12 @@ def run(id):
         if debug: print("macro already running")
 
 def toggledrag():
-    pass
+    global drag
+    if drag.get():
+        drag.set(False)
+    else: 
+        drag.set(True)
+
 
 def reset_hotkeys(id):
     if debug: print(f"resetting hotkeys of macro with id {id}")

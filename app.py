@@ -108,6 +108,7 @@ def on_press(key):
             elif action == "confirm":
                 gui.confirm("hotkey")
             elif action == "toggledrag":
+                if gui.debug: print("toggledrag")
                 gui.toggledrag()
 
     if gui.recording:

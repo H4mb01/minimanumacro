@@ -2,14 +2,14 @@
 A program to record and play macros on your PC
 
 ## Warning
-Work in progress.
+Work in progress.  
 Usage at own risk!
 
 ## Default Keybindings
 Start recording a new macro: Alt + R  
 Abort recording of a new macro: Alt + A  
 Confirm recorded macro: Alt + C  
-Toggle drag option: Alt + D (not implemented yet)  
+Toggle drag option: Alt + D  
 to cancel a running macro double-tap the ESC key
 
 ## Usage
