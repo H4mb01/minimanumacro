@@ -136,6 +136,21 @@ def run(id):
 def toggledrag():
     pass
 
+def reset_hotkeys(id):
+    print(f"resetting hotkeys of macro with id {id}")
+    for makro in makros:
+        if makro["id"] == id:
+            makro["combination"] = []
+            makro["combinationstr"] = []
+            global combination_to_id
+            for key in combination_to_id:
+                if combination_to_id[key] == id:
+                    del combination_to_id[key]
+                    break
+            with open('makros.json', 'w') as f:
+                json.dump({"makros": makros}, f, indent=2) 
+            rendermakros()
+    pass
 
 def save_makros():
     with open('makros.json', 'w') as f:
@@ -180,9 +195,21 @@ def rendermakros():
                 bg=ascorange, 
                 command=lambda makro=makro: addhotkeys(makro["id"])
                 )
+        else:
+            reset_btn = tk.Button(
+                makroframe,
+                fg=asctext,
+                bg=ascorange,
+                text="reset hotkeys",
+                command= lambda makro=makro: reset_hotkeys(makro["id"])
+            )
+            reset_btn.grid(
+                row=row,
+                column=4
+            )
         makrohotkeys.grid(
             row=row, 
-            column=2, 
+            column=3, 
             padx=3, 
             ipadx=5)
         playbtn = tk.Button(
@@ -194,20 +221,11 @@ def rendermakros():
             )
         playbtn.grid(
             row=row, 
-            column=3, 
+            column=2, 
             padx=3,
             ipadx=10,
             )
-        '''running_lbl = tk.Label(
-            makroframe,
-            fg=asctext,
-            bg=ascgreen,
-            text="running" if running == makro["id"] else ""
-        )
-        running_lbl.grid(
-            row=row,
-            column=4
-        )'''
+        
         deleteBtn = tk.Button(
             makroframe, 
             text="delete",
