@@ -42,6 +42,9 @@ recorded_hotkeys = set()
 recorded_hotkeys_str = set()
 hotkeyid = 0
 default_combinations = {}
+running = None
+statusvar = StringVar()
+statusvar.set("Status: ready")
 
 
 #filling combination_to_id
@@ -77,12 +80,14 @@ def findmakro(id):
     return None
 
 def runmakro(id):
-    global currentcombination
+    global currentcombination, running, cancel
     currentcombination = set()
     if recording:
         print("can't play a macro while recording")
     else:
         print("running macro {0}".format(id))
+        statusvar.set("Status: running macro")
+        running = id
         makro = copy.deepcopy(findmakro(id)["makro"])
         startingtime = time.time()
         makrostart = makro[0]["time"]
@@ -114,6 +119,9 @@ def runmakro(id):
                     print("something didn't work *surprisedpikachuface*")
                 print("making step")
                 makro.pop(0)
+        running = None
+        cancel=False
+        statusvar.set("Status: ready")
 
 def toggledrag():
     pass
@@ -180,6 +188,16 @@ def rendermakros():
             padx=3,
             ipadx=10,
             )
+        '''running_lbl = tk.Label(
+            makroframe,
+            fg=asctext,
+            bg=ascgreen,
+            text="running" if running == makro["id"] else ""
+        )
+        running_lbl.grid(
+            row=row,
+            column=4
+        )'''
         deleteBtn = tk.Button(
             makroframe, 
             text="delete",
@@ -228,6 +246,7 @@ def record():
         newmakro = []
         global recording
         recording = True
+        statusvar.set("Status: recording macro")
 
 def abort():
     print("recording aborted.")
@@ -236,6 +255,7 @@ def abort():
     newmakro = []
     recorded_hotkeys = set()
     hotkeyid = 0
+    statusvar.set("Status: ready")
     
 def confirm(button):
     print("recording finished.")
@@ -289,6 +309,7 @@ def confirm(button):
         rendermakros()
     else: 
         print("recording didn't get started")
+    statusvar.set("Status: ready")
         
 
 def addhotkeys(id):
@@ -307,7 +328,10 @@ title = tk.Label(canvas, text=titletext, bg=asctext, fg="white", font="Helvetica
 title.place(relheight=0.1, relwidth=1)
 
 frame = tk.Frame(canvas, bg=asclightblue)
-frame.place( relwidth=1, relheight=0.8, relx= 0, rely=0.1)
+frame.place( relwidth=1, relheight=0.75, relx= 0, rely=0.1)
+
+status = tk.Label(canvas, textvariable=statusvar, bg=asclightblue, fg=asctext)
+status.place(relwidth=1, relheight=0.05, relx= 0, rely=0.85)
 
 makroframe = tk.Frame(frame, bg="white")
 makroframe.place(relwidth=1, relheight=1, relx=0, rely=0)
@@ -324,4 +348,3 @@ abortButton.place(relx=0.425, rely= .9, relheight=.1)
 
 confirmButton = tk.Button(buttoncontainer, bg=ascgreen, text="confirm", padx=10, pady=5, fg="black", command=lambda: confirm("button"))
 confirmButton.place(relx=.85, rely=.9, relheight=.1)
-

@@ -12,11 +12,7 @@ maus = MC()
 
 
 combo = gui.combo
-gui.recording = False
-gui.combinations = [set((Key.ctrl_l, Key.alt_l, Key.space)),set((Key.ctrl_r, Key.shift))]
-gui.newmakro = []
-gui.makros = []
-gui.hotkeys = {}
+
 
 
 #json
@@ -90,9 +86,8 @@ def on_scroll(x, y, dx, dy):
 
 #keyboard inputs
 def on_press(key):
-    print(key)
-    #vk=gui.get_vk(key)
-    #gui.pressed_vks.add(vk)
+    vk=get_vk(key)
+    print(f"{key}: {vk}")
     if len(gui.currentcombination) >3:
         gui.currentcombination = set()
     gui.currentcombination.add(get_vk(key))
@@ -126,6 +121,7 @@ def on_press(key):
             gui.recorded_hotkeys.add(get_vk(key))
             gui.recorded_hotkeys_str.add(str(key))
             print("recorded hotkeys:", gui.recorded_hotkeys, gui.recorded_hotkeys_str)
+    
 
 def on_release(key):
     '''vk=gui.get_vk(key)
